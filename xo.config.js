@@ -38,5 +38,6 @@ module.exports = {
 		"unicorn/prefer-node-protocol": 0,
 		"import/order": 0,
 		"node/file-extension-in-import": 0,
+		"@typescript-eslint/naming-convention": 0,
 	},
 };

@@ -6398,6 +6398,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"abort-controller@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "abort-controller@npm:3.0.0"
+  dependencies:
+    event-target-shim: ^5.0.0
+  checksum: 170bdba9b47b7e65906a28c8ce4f38a7a369d78e2271706f020849c1bfe0ee2067d4261df8bbb66eb84f79208fd5b710df759d64191db58cfba7ce8ef9c54b75
+  languageName: node
+  linkType: hard
+
 "accepts@npm:~1.3.5, accepts@npm:~1.3.8":
   version: 1.3.8
   resolution: "accepts@npm:1.3.8"
@@ -7097,6 +7106,15 @@ __metadata:
   version: 4.3.5
   resolution: "axe-core@npm:4.3.5"
   checksum: 973c6a80f0aaa663820b209d4202de7a0c240a2dea2f3cff168b09c0f221b27179b1f0988f00ad11ed63cbc50535920f8ca779de1c60dc82090ab2d275f71fdd
+  languageName: node
+  linkType: hard
+
+"axios@npm:0.26.1":
+  version: 0.26.1
+  resolution: "axios@npm:0.26.1"
+  dependencies:
+    follow-redirects: ^1.14.8
+  checksum: d9eb58ff4bc0b36a04783fc9ff760e9245c829a5a1052ee7ca6013410d427036b1d10d04e7380c02f3508c5eaf3485b1ae67bd2adbfec3683704745c8d7a6e1a
   languageName: node
   linkType: hard
 
@@ -11275,6 +11293,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"event-target-shim@npm:^5.0.0":
+  version: 5.0.1
+  resolution: "event-target-shim@npm:5.0.1"
+  checksum: 1ffe3bb22a6d51bdeb6bf6f7cf97d2ff4a74b017ad12284cc9e6a279e727dc30a5de6bb613e5596ff4dc3e517841339ad09a7eec44266eccb1aa201a30448166
+  languageName: node
+  linkType: hard
+
 "events@npm:^2.0.0":
   version: 2.1.0
   resolution: "events@npm:2.1.0"
@@ -11804,6 +11829,16 @@ __metadata:
     inherits: ^2.0.3
     readable-stream: ^2.3.6
   checksum: 42e07747f83bcd4e799da802e621d6039787749ffd41f5517f8c4f786ee967e31ba32b09f8b28a9c6f67bd4f5346772e604202df350e8d99f4141771bae31279
+  languageName: node
+  linkType: hard
+
+"follow-redirects@npm:^1.14.8":
+  version: 1.14.9
+  resolution: "follow-redirects@npm:1.14.9"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: f5982e0eb481818642492d3ca35a86989c98af1128b8e1a62911a3410621bc15d2b079e8170b35b19d3bdee770b73ed431a257ed86195af773771145baa57845
   languageName: node
   linkType: hard
 
@@ -13420,6 +13455,16 @@ __metadata:
   version: 0.2.1
   resolution: "is-arrayish@npm:0.2.1"
   checksum: eef4417e3c10e60e2c810b6084942b3ead455af16c4509959a27e490e7aee87cfb3f38e01bbde92220b528a0ee1a18d52b787e1458ee86174d8c7f0e58cd488f
+  languageName: node
+  linkType: hard
+
+"is-base64@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "is-base64@npm:1.1.0"
+  bin:
+    is-base64: bin/is-base64
+    is_base64: bin/is-base64
+  checksum: 5935d054d04895cd617c20853b3cb6516db8c3852a2697ebcbda0d4889c9eb841ca0610c99108f83d4342b378fdd9d0f222227ec25f18528227479749d1833ac
   languageName: node
   linkType: hard
 
@@ -16914,6 +16959,7 @@ __metadata:
     "@types/react-dom": ^18.0.0
     "@typescript-eslint/eslint-plugin": ^5.18.0
     "@typescript-eslint/parser": ^5.18.0
+    axios: 0.26.1
     babel-loader: ^8.2.3
     babel-plugin-jsx-remove-data-test-id: ^3.0.0
     cypress-cucumber-preprocessor: ^4.3.1
@@ -16932,6 +16978,8 @@ __metadata:
     next-pwa: ^5.5.0
     next-transpile-modules: ^9.0.0
     prettier: ^2.6.2
+    pusher: 5.0.1
+    pusher-js: 7.0.6
     react: 18.0.0
     react-dom: 18.0.0
     standard-version: ^9.3.2
@@ -18120,6 +18168,28 @@ __metadata:
   version: 2.1.1
   resolution: "punycode@npm:2.1.1"
   checksum: 823bf443c6dd14f669984dea25757b37993f67e8d94698996064035edd43bed8a5a17a9f12e439c2b35df1078c6bec05a6c86e336209eb1061e8025c481168e8
+  languageName: node
+  linkType: hard
+
+"pusher-js@npm:7.0.6":
+  version: 7.0.6
+  resolution: "pusher-js@npm:7.0.6"
+  dependencies:
+    tweetnacl: ^1.0.3
+  checksum: 5df7184dae46f3e24cdf5104a3357bc24e3d8fde248277367d0316571e34707290b928e6afbe953dccf586ed6b41f91e4d980bb8e6085269d39ee4b0f921417a
+  languageName: node
+  linkType: hard
+
+"pusher@npm:5.0.1":
+  version: 5.0.1
+  resolution: "pusher@npm:5.0.1"
+  dependencies:
+    abort-controller: ^3.0.0
+    is-base64: ^1.1.0
+    node-fetch: ^2.6.1
+    tweetnacl: ^1.0.0
+    tweetnacl-util: ^0.15.0
+  checksum: 2c4f222a83e087736f0867089afdf2def1e78097b8da93943fa0ef9eb8b8aa687e5748c24df384bb97cfee13a2459e7fe4e74b87d5c750453136049dad371813
   languageName: node
   linkType: hard
 
@@ -21364,6 +21434,20 @@ __metadata:
   version: 0.0.1
   resolution: "tty-browserify@npm:0.0.1"
   checksum: 93b745d43fa5a7d2b948fa23be8d313576d1d884b48acd957c07710bac1c0d8ac34c0556ad4c57c73d36e11741763ef66b3fb4fb97b06b7e4d525315a3cd45f5
+  languageName: node
+  linkType: hard
+
+"tweetnacl-util@npm:^0.15.0":
+  version: 0.15.1
+  resolution: "tweetnacl-util@npm:0.15.1"
+  checksum: ae6aa8a52cdd21a95103a4cc10657d6a2040b36c7a6da7b9d3ab811c6750a2d5db77e8c36969e75fdee11f511aa2b91c552496c6e8e989b6e490e54aca2864fc
+  languageName: node
+  linkType: hard
+
+"tweetnacl@npm:^1.0.0, tweetnacl@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "tweetnacl@npm:1.0.3"
+  checksum: e4a57cac188f0c53f24c7a33279e223618a2bfb5fea426231991652a13247bea06b081fd745d71291fcae0f4428d29beba1b984b1f1ce6f66b06a6d1ab90645c
   languageName: node
   linkType: hard
 
