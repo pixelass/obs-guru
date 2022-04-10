@@ -1,5 +1,4 @@
 {
-  "toggle": "Toggle",
-  "on": "on",
-  "off": "off"
+  "start": "Start",
+  "stop": "Stop"
 }

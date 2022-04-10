@@ -1,5 +1,4 @@
 {
-  "toggle": "Umschalten",
-  "on": "an",
-  "off": "aus"
+  "start": "Start",
+  "stop": "Stop"
 }
