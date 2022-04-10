@@ -1,6 +1,6 @@
 {
-  "name": "pwa-template",
-  "short_name": "pwa-template",
+  "name": "OBS Guru",
+  "short_name": "OBS Guru",
   "display": "standalone",
   "orientation": "landscape",
   "theme_color": "#00695c",

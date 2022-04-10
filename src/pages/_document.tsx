@@ -67,8 +67,8 @@ class Document extends NextDocument {
 					<meta charSet="utf-8" />
 					<meta name="version" content={pkg.version} />
 					<meta name="robots" content="noindex,nofollow" />
-					<meta name="application-name" content="pwa-template" />
-					<meta name="apple-mobile-web-app-title" content="pwa-template" />
+					<meta name="application-name" content="OBS Guru" />
+					<meta name="apple-mobile-web-app-title" content="OBS Guru" />
 					<meta name="apple-mobile-web-app-capable" content="yes" />
 					<meta
 						name="apple-mobile-web-app-status-bar-style"
