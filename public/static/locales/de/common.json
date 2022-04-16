@@ -1,4 +1,10 @@
 {
+
+  "copyLink": "Link kopieren",
+  "openRoom": "Raum öffnen",
+  "send": "Senden",
+  "shareCamera": "Kamera teilen",
+  "shareScreen": "Bildschirm teilen",
   "start": "Start",
   "stop": "Stop"
 }
