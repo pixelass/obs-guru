@@ -1,4 +1,5 @@
 import { cache } from "@/ions/configs/emotion";
+import { PeerProvider } from "@/ions/contexts/peer";
 import { fontFaces, globalStyles } from "@/ions/styles";
 import { theme } from "@/ions/theme";
 import {
@@ -24,7 +25,9 @@ function App({ Component, pageProps }) {
 			<EmotionCacheProvider value={cache}>
 				<EmotionThemeProvider theme={theme}>
 					<CssBaseline />
-					<Component {...pageProps} />
+					<PeerProvider>
+						<Component {...pageProps} />
+					</PeerProvider>
 				</EmotionThemeProvider>
 			</EmotionCacheProvider>
 		</>
