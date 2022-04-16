@@ -1,13 +1,13 @@
-import Demo from "@/templates/Home";
-import type { GetStaticProps } from "next";
+import Room from "@/templates/room";
+import type { GetServerSideProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React from "react";
 
 export default function Page() {
-	return <Demo />;
+	return <Room />;
 }
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
 	props: {
 		...(await serverSideTranslations(locale, ["common"])),
 	},
