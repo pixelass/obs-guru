@@ -9,6 +9,7 @@ import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import React from "react";
 import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
+
 export default function Template() {
 	const { t } = useTranslation(["common"]);
 	return (

@@ -1,42 +1,78 @@
-import { constraints } from "@/ions/constants";
 import { usePeer } from "@/ions/contexts/peer";
-import { startCapture } from "@/ions/hooks/screen-share";
-import { useSocket } from "@/ions/hooks/socket";
+import { usePusher } from "@/ions/hooks/pusher";
+import { startCameraCapture, startScreenCapture } from "@/ions/hooks/screen-share";
 import { useStore } from "@/ions/store";
 import { SocketEvents } from "@/ions/types";
 import StreamCard from "@/organisms/stream-card";
+import axios from "axios";
 import { useRouter } from "next/router";
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 
 export default function Template() {
 	const {
 		query: { id },
 	} = useRouter();
 	const peer = usePeer();
-	const socket = useSocket();
 	const stream = useStore(state => state.stream);
 
-	const start = useCallback(() => {
-		startCapture(constraints).then(stream => {
-			useStore.getState().setStream(stream);
+	const startScreenShare = useCallback(async () => {
+		const stream = await startScreenCapture({
+			audio: false,
+			video: {
+				width: 1600 * 3,
+				height: 900 * 3,
+			},
 		});
+		useStore.getState().setStream(stream);
 	}, []);
 
+	const startCameraShare = useCallback(async () => {
+		const stream = await startCameraCapture({
+			audio: false,
+			video: true,
+		});
+		useStore.getState().setStream(stream);
+	}, []);
+
+	usePusher(
+		id as string,
+		useMemo(
+			() => ({
+				[SocketEvents.JoinRoom]({ userId }: { userId: string; roomId: string }) {
+					console.log("Connect", userId);
+					if (peer) {
+						useStore
+							.getState()
+							.addPeer(userId, peer.call(userId, useStore.getState().stream));
+					}
+				},
+				[SocketEvents.UserDisconnected]({ userId }: { userId: string; roomId: string }) {
+					console.log("Disconnect", userId);
+					useStore.getState().removePeer(userId);
+				},
+			}),
+			[peer]
+		)
+	);
+
 	useEffect(() => {
-		if (peer && socket) {
-			socket.on(SocketEvents.UserConnected, (userId: string) => {
-				useStore.getState().addPeer(userId, peer.call(userId, useStore.getState().stream));
-			});
-
-			socket.on(SocketEvents.UserDisconnected, (userId: string) => {
-				useStore.getState().removePeer(userId);
-			});
-
+		if (peer) {
 			peer.on("open", userId => {
-				socket.emit(SocketEvents.JoinRoom, id, userId);
+				void axios.post("/api/pusher", {
+					channel: id,
+					data: { roomId: id, userId },
+					event: SocketEvents.JoinRoom,
+				});
 			});
 		}
-	}, [socket, peer, id]);
+	}, [peer, id]);
 
-	return <StreamCard stream={stream} id={id as string} onStart={start} />;
+	return (
+		<StreamCard
+			stream={stream}
+			id={id as string}
+			onShareScreen={startScreenShare}
+			onShareCamera={startCameraShare}
+		/>
+	);
 }

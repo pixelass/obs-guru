@@ -1,4 +1,4 @@
-import Demo from "@/templates/Home";
+import Demo from "@/templates/home";
 import type { GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React from "react";

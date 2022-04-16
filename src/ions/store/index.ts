@@ -1,4 +1,4 @@
-import produce from "immer";
+import { produce } from "immer";
 import { MediaConnection } from "peerjs";
 import create from "zustand";
 
@@ -20,17 +20,17 @@ export const useStore = create<StoreModel>(set => ({
 	},
 	addPeer(userId, connection) {
 		set(
-			produce(state => {
+			produce<StoreModel>(state => {
 				state.peers[userId] = connection;
 			})
 		);
 	},
 	removePeer(userId) {
 		set(
-			produce(state => {
+			produce<StoreModel>(state => {
 				if (state.peers[userId]) {
 					state.peers[userId].close();
-					delete state.peers[userId];
+					state.peers[userId] = undefined;
 				}
 			})
 		);

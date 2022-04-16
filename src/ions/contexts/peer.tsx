@@ -1,5 +1,5 @@
 import type PeerType from "peerjs";
-import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import React, { createContext, ReactNode, useContext, useEffect, useState } from "react";
 
 export const PeerContext = createContext<PeerType>(null);
 

@@ -26,6 +26,14 @@ export function usePusher(channel: string, events?: Events) {
 		}
 
 		return () => {
+			if (events) {
+				for (const key in events) {
+					if (Object.prototype.hasOwnProperty.call(events, key)) {
+						mainChannel.unbind(key, events[key]);
+					}
+				}
+			}
+
 			pusher.unsubscribe(channel);
 		};
 	}, [channel, events]);

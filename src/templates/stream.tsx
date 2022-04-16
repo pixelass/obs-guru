@@ -1,8 +1,8 @@
 import { StyledVideo } from "@/atoms/video/styled";
 import { usePeer } from "@/ions/contexts/peer";
-import { useSocket } from "@/ions/hooks/socket";
-import { fitScreen } from "@/ions/styles";
+import { FitScreenLoader } from "@/ions/styles";
 import { SocketEvents } from "@/ions/types";
+import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useRef } from "react";
 
@@ -11,10 +11,9 @@ export default function Template() {
 		query: { id },
 	} = useRouter();
 	const peer = usePeer();
-	const socket = useSocket();
 	const video = useRef<HTMLVideoElement>(null);
 	useEffect(() => {
-		if (peer && socket) {
+		if (peer) {
 			peer.on("call", function (call) {
 				call.answer();
 				call.on("stream", remoteStream => {
@@ -25,15 +24,48 @@ export default function Template() {
 					});
 				});
 			});
-
-			peer.on("open", peerId => {
-				socket.emit(SocketEvents.JoinRoom, id, peerId);
+			let waitingUserId;
+			peer.on("open", userId => {
+				waitingUserId = userId;
+				void axios.post("/api/pusher", {
+					channel: id,
+					data: { roomId: id, userId },
+					event: SocketEvents.JoinRoom,
+				});
 			});
+
+			const cleanup = (userId?: string) => {
+				if (userId) {
+					void axios.post("/api/pusher", {
+						channel: id,
+						data: { roomId: id, userId },
+						event: SocketEvents.UserDisconnected,
+					});
+				}
+			};
+
+			const handleBeforeUnload = (event_: BeforeUnloadEvent) => {
+				event_.preventDefault();
+				// Chrome requires returnValue to be set.
+				event_.returnValue = "";
+				cleanup(waitingUserId);
+			};
+
+			window.addEventListener("beforeunload", handleBeforeUnload);
+
+			return () => {
+				window.removeEventListener("beforeunload", handleBeforeUnload);
+				cleanup(waitingUserId);
+			};
 		}
-	}, [id, peer, socket]);
+
+		return () => {
+			/* Keep cleanup */
+		};
+	}, [id, peer]);
 	return (
 		<>
-			{fitScreen}
+			<FitScreenLoader />
 			<StyledVideo ref={video} muted />
 		</>
 	);
