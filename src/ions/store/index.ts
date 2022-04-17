@@ -7,6 +7,10 @@ export type Peers = Record<string, MediaConnection>;
 export interface StoreModel {
 	stream: MediaStream | undefined;
 	peers: Peers;
+	width: number;
+	height: number;
+	setHeight(height: number): void;
+	setWidth(width: number): void;
 	setStream(stream: MediaStream): void;
 	addPeer(userId: string, connection: MediaConnection): void;
 	removePeer(userId: string): void;
@@ -15,6 +19,14 @@ export interface StoreModel {
 export const useStore = create<StoreModel>(set => ({
 	stream: undefined,
 	peers: {},
+	width: 2160,
+	height: 1440,
+	setHeight(height) {
+		set({ height });
+	},
+	setWidth(width) {
+		set({ width });
+	},
 	setStream(stream) {
 		set({ stream });
 	},
