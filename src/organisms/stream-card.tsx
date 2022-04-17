@@ -1,17 +1,17 @@
 import { StyledAbsoluteVideo, StyledVideoWrapper } from "@/atoms/video/styled";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import PresentToAllIcon from "@mui/icons-material/PresentToAll";
 import VideoCameraFrontIcon from "@mui/icons-material/VideoCameraFront";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import IconButton from "@mui/material/IconButton";
+import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import copyToClipboard from "copy-to-clipboard";
 import { useTranslation } from "next-i18next";
 import React, { useEffect, useRef } from "react";
-import Stack from "@mui/material/Stack";
-import Box from "@mui/material/Box";
 
 interface StreamCardProps {
 	stream: MediaStream;

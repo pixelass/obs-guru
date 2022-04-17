@@ -11,10 +11,10 @@ export const StyledAbsoluteVideo = styled(StyledVideo)({
 	inset: 0,
 });
 
-export const StyledVideoWrapper = styled("figure")({
+export const StyledVideoWrapper = styled("figure")(({ theme }) => ({
 	position: "relative",
 	width: "100%",
 	margin: 0,
 	paddingBottom: `${(100 / 16) * 9}%`,
-	background: "rebeccapurple",
-});
+	background: theme.palette.primary.main,
+}));
