@@ -2,6 +2,7 @@ import { Column, Grid } from "@contour/react";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
+import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useTranslation } from "next-i18next";
 import dynamic from "next/dynamic";
@@ -18,7 +19,7 @@ export default function Template() {
 		<Grid
 			strategy="grid"
 			colCount={{ xs: 1, s: 1, m: 2, l: 2, xl: 2 }}
-			sx={{ alignItems: "center", minHeight: "100vh" }}
+			sx={{ alignItems: "center", minHeight: "100vh", color: "#000000" }}
 		>
 			<Column>
 				<Typography variant="h3" component="h1" sx={{ textAlign: "center" }}>
@@ -26,32 +27,35 @@ export default function Template() {
 				</Typography>
 			</Column>
 			<Column flex colSpan={{ xs: 1 }} sx={{ justifyContent: "center" }}>
-				<Link passHref href="/room">
-					<Button variant="contained" size="large">
-						<>{t("common:openRoom")}</>
-					</Button>
-				</Link>
+				<Stack gap={2} alignItems="center">
+					<Typography variant="h4" component="h2" sx={{ textAlign: "center" }}>
+						<>{t("common:introText0")}</>
+					</Typography>
+					<Link passHref href="/room">
+						<Button variant="contained" size="large">
+							<>{t("common:streamNow")}</>
+						</Button>
+					</Link>
+					<Typography sx={{ textAlign: "center" }}>
+						<>{t("common:introText1")}</>
+					</Typography>
+					<Typography sx={{ textAlign: "center" }}>
+						<>{t("common:introText2")}</>
+					</Typography>
+				</Stack>
 			</Column>
 
 			<Column flex colSpan={{ xs: 1 }} sx={{ justifyContent: "center" }}>
 				<ObsLottie />
 			</Column>
-			<Column flex sx={{ justifyContent: "space-between" }}>
-				<Link passHref href="/credits">
-					<Typography
-						color="inherit"
-						component="a"
-						sx={{ textDecoration: "none", textAlign: "center" }}
-					>
-						<>{t("common:credits")}</>
-					</Typography>
-				</Link>
+			<Column>
 				<IconButton
 					href="https://github.com/pixelass/obs-guru"
 					rel="noreferrer"
 					target="blank"
 					aria-label="GitHub"
 					component="a"
+					color="inherit"
 				>
 					<GitHubIcon />
 				</IconButton>
