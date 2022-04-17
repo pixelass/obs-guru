@@ -1,6 +1,6 @@
 import { usePeer } from "@/ions/contexts/peer";
 import { usePusher } from "@/ions/hooks/pusher";
-import { startCameraCapture, startScreenCapture } from "@/ions/hooks/screen-share";
+import { startCameraCapture, startScreenCapture } from "@/ions/utils/screen-share";
 import { useStore } from "@/ions/store";
 import { SocketEvents } from "@/ions/types";
 import StreamCard from "@/organisms/stream-card";
