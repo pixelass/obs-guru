@@ -2,10 +2,14 @@
   "copyLink": "Copy link",
   "credits": "Credits",
   "headline": "Create streams for OBS",
+  "introText0": "100% free",
+  "introText1": "No sign-in, no cookies, no tracking, no data collection",
+  "introText2": "100% open source",
   "openRoom": "Open room",
   "send": "Send",
   "shareCamera": "Share camera",
   "shareScreen": "Share screen",
   "start": "Start",
+  "streamNow": "Stream now",
   "stop": "Stop"
 }
