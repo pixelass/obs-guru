@@ -8,6 +8,12 @@ const typography = {
 export const theme = createTheme({
 	palette: {
 		mode: "dark",
+		primary: {
+			main: "#663399",
+		},
+		secondary: {
+			main: "#ffae00",
+		},
 	},
 	typography,
 });

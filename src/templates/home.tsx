@@ -1,10 +1,12 @@
 import { Column, Grid } from "@contour/react";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { useTranslation } from "next-i18next";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import React from "react";
-import Button from "@mui/material/Button";
 
 const ObsLottie = dynamic(async () => import("@/atoms/lottie-player"), {
 	ssr: false,
@@ -33,6 +35,26 @@ export default function Template() {
 
 			<Column flex colSpan={{ xs: 1 }} sx={{ justifyContent: "center" }}>
 				<ObsLottie />
+			</Column>
+			<Column flex sx={{ justifyContent: "space-between" }}>
+				<Link passHref href="/credits">
+					<Typography
+						color="inherit"
+						component="a"
+						sx={{ textDecoration: "none", textAlign: "center" }}
+					>
+						<>{t("common:credits")}</>
+					</Typography>
+				</Link>
+				<IconButton
+					href="https://github.com/pixelass/obs-guru"
+					rel="noreferrer"
+					target="blank"
+					aria-label="GitHub"
+					component="a"
+				>
+					<GitHubIcon />
+				</IconButton>
 			</Column>
 		</Grid>
 	);

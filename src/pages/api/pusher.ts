@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import Pusher from "pusher";
 import process from "node:process";
+import Pusher from "pusher";
 
 export default async function handler(
 	request: NextApiRequest,

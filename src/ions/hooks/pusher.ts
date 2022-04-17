@@ -1,6 +1,6 @@
+import process from "process";
 import Pusher from "pusher-js";
 import { useEffect } from "react";
-import process from "process";
 
 export type Events = Record<string, (data: Record<string, unknown>) => void>;
 
