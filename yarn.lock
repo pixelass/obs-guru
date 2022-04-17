@@ -1799,6 +1799,45 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@contour/react@npm:^0.6.3":
+  version: 0.6.3
+  resolution: "@contour/react@npm:0.6.3"
+  dependencies:
+    "@contour/theme": ^0.6.0
+    "@contour/utils": ^0.6.0
+    "@emotion/serialize": ^1.0.2
+    deepmerge: ^4.2.2
+  peerDependencies:
+    "@emotion/react": ">=11.8.1"
+    react: ">=17.0.2"
+  checksum: b975086e204d0a2eaf3576daf158e45ba3d03a9cf3e9d65629364d129aa437809b93efc0137f8c93b6fc631a5b4583ef6bc6be31ae82a5561db28936f975833c
+  languageName: node
+  linkType: hard
+
+"@contour/theme@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "@contour/theme@npm:0.6.0"
+  dependencies:
+    "@contour/utils": ^0.6.0
+  peerDependencies:
+    react: ">=17.0.2"
+  checksum: a11d91ebca2ef1f725827b216c1ee792b1d944ba82501d59467847387fcaf3baaebce1fe6315a46e4c9d4021b422e552dceeb0bdc85244960b22c357c80ba213
+  languageName: node
+  linkType: hard
+
+"@contour/utils@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "@contour/utils@npm:0.6.0"
+  dependencies:
+    "@emotion/serialize": ^1.0.2
+    abcq: ^1.0.2
+    type-fest: ^2.12.0
+  peerDependencies:
+    react: ">=17.0.2"
+  checksum: 77a71f2e90b2584fbb1bbd00d0a9cd8a5b2c9262383432201138768701d95dc5520b93a641c48fe2a375cad7b500fc91ebb6e2b26c1ba1a32924b08ebcc7a64d
+  languageName: node
+  linkType: hard
+
 "@cspotcode/source-map-consumer@npm:0.8.0":
   version: 0.8.0
   resolution: "@cspotcode/source-map-consumer@npm:0.8.0"
@@ -5321,6 +5360,15 @@ __metadata:
   version: 1.1.1
   resolution: "abbrev@npm:1.1.1"
   checksum: a4a97ec07d7ea112c517036882b2ac22f3109b7b19077dc656316d07d308438aac28e4d9746dc4d84bf6b1e75b4a7b0a5f3cb30592419f128ca9a8cee3bcfa17
+  languageName: node
+  linkType: hard
+
+"abcq@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "abcq@npm:1.0.2"
+  dependencies:
+    tslib: ^1.9.3
+  checksum: a1856cbafd146b8303216c0a465c3ae51eea288805d22cf7e1914f554d9bcd1376819e3ee1fae07c7516c18095a5e03cc4ea96e5146046ca25b2edbf31a87b28
   languageName: node
   linkType: hard
 
@@ -14288,6 +14336,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lottie-web@npm:^5.7.6":
+  version: 5.9.2
+  resolution: "lottie-web@npm:5.9.2"
+  checksum: f9d5352c15afcaaba9c59e50873ee44078dad43cff7072f98374c15428d0925b9667f94b21a2b135f87159aa1cddbd7d4975d6f6e7211d634456a077119d6055
+  languageName: node
+  linkType: hard
+
 "loupe@npm:^2.3.1":
   version: 2.3.4
   resolution: "loupe@npm:2.3.4"
@@ -15797,6 +15852,9 @@ __metadata:
     "@babel/preset-typescript": ^7.16.7
     "@commitlint/cli": ^16.2.3
     "@commitlint/config-conventional": ^16.2.1
+    "@contour/react": ^0.6.3
+    "@contour/theme": ^0.6.0
+    "@contour/utils": ^0.6.0
     "@cypress/browserify-preprocessor": ^3.0.2
     "@emotion/babel-plugin": ^11.7.2
     "@emotion/cache": 11.7.1
@@ -15848,6 +15906,7 @@ __metadata:
     pusher-js: 7.0.6
     react: 18.0.0
     react-dom: 18.0.0
+    react-lottie-player: ^1.4.2
     standard-version: ^9.3.2
     stylelint: ^13.13.1
     stylelint-a11y: ^1.2.3
@@ -17355,6 +17414,19 @@ __metadata:
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
+  languageName: node
+  linkType: hard
+
+"react-lottie-player@npm:^1.4.2":
+  version: 1.4.2
+  resolution: "react-lottie-player@npm:1.4.2"
+  dependencies:
+    fast-deep-equal: ^3.1.3
+    lottie-web: ^5.7.6
+    rfdc: ^1.3.0
+  peerDependencies:
+    react: ^16.0.0 || ^17.0.0
+  checksum: c08b07dd799f87094a637dd4ba315b693283f7034f44c18a3705a39bfb608db899b4fc3ecfe8bb03c621a23419be2c8f0c14df1a098fb475b15d7c18d55eee30
   languageName: node
   linkType: hard
 
@@ -20196,7 +20268,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^1.8.1":
+"tslib@npm:^1.8.1, tslib@npm:^1.9.3":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
   checksum: dbe628ef87f66691d5d2959b3e41b9ca0045c3ee3c7c7b906cc1e328b39f199bb1ad9e671c39025bd56122ac57dfbf7385a94843b1cc07c60a4db74795829acd
@@ -20323,7 +20395,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-fest@npm:^2.0.0, type-fest@npm:^2.12.2":
+"type-fest@npm:^2.0.0, type-fest@npm:^2.12.0, type-fest@npm:^2.12.2":
   version: 2.12.2
   resolution: "type-fest@npm:2.12.2"
   checksum: ee69676da1f69d2b14bbec28c7b95220a3221ab14093f54bde179c59e185a80470859553eada535ec35d8637a245c2f0efe9d7c99cc46a43f3b4c7ef64db7957
