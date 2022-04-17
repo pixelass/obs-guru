@@ -67,6 +67,7 @@ export default function StreamCard({ stream, id, onShareCamera, onShareScreen }:
 					<Box sx={{ flex: 1, width: "calc(100% - 40px)" }}>
 						<Typography
 							variant="caption"
+							component="div"
 							sx={{
 								width: "100%",
 								overflow: "hidden",
