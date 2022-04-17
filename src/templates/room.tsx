@@ -1,8 +1,8 @@
 import { usePeer } from "@/ions/contexts/peer";
 import { usePusher } from "@/ions/hooks/pusher";
-import { startCameraCapture, startScreenCapture } from "@/ions/utils/screen-share";
 import { useStore } from "@/ions/store";
 import { SocketEvents } from "@/ions/types";
+import { startCameraCapture, startScreenCapture } from "@/ions/utils/screen-share";
 import StreamCard from "@/organisms/stream-card";
 import { Column, Grid } from "@contour/react";
 import axios from "axios";
@@ -15,17 +15,19 @@ export default function Template() {
 	} = useRouter();
 	const peer = usePeer();
 	const stream = useStore(state => state.stream);
+	const height = useStore(state => state.height);
+	const width = useStore(state => state.width);
 
 	const startScreenShare = useCallback(async () => {
 		const stream = await startScreenCapture({
 			audio: false,
 			video: {
-				width: 1600 * 3,
-				height: 900 * 3,
+				width,
+				height,
 			},
 		});
 		useStore.getState().setStream(stream);
-	}, []);
+	}, [height, width]);
 
 	const startCameraShare = useCallback(async () => {
 		const stream = await startCameraCapture({
@@ -71,7 +73,7 @@ export default function Template() {
 	return (
 		<Grid
 			strategy="grid"
-			colCount={{ xs: 1, s: 1, m: 6, l: 6, xl: 6 }}
+			colCount={{ xs: 2, s: 2, m: 6, l: 6, xl: 6 }}
 			sx={{ minHeight: "100vh" }}
 		>
 			<Column
