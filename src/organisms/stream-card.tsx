@@ -46,7 +46,7 @@ export default function StreamCard({ stream, id, onShareCamera, onShareScreen }:
 	const origin = "https://www.obs.guru";
 
 	return (
-		<Card sx={{ maxWidth: 600, mx: "auto", mt: 6 }}>
+		<Card sx={{ width: "100%" }}>
 			<StyledVideoWrapper>
 				<StyledAbsoluteVideo
 					ref={video}
@@ -66,6 +66,7 @@ export default function StreamCard({ stream, id, onShareCamera, onShareScreen }:
 				>
 					<Box sx={{ flex: 1, width: "calc(100% - 40px)" }}>
 						<Typography
+							variant="caption"
 							sx={{
 								width: "100%",
 								overflow: "hidden",

@@ -4,6 +4,7 @@ import { startCameraCapture, startScreenCapture } from "@/ions/hooks/screen-shar
 import { useStore } from "@/ions/store";
 import { SocketEvents } from "@/ions/types";
 import StreamCard from "@/organisms/stream-card";
+import { Column, Grid } from "@contour/react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useCallback, useEffect, useMemo } from "react";
@@ -68,11 +69,24 @@ export default function Template() {
 	}, [peer, id]);
 
 	return (
-		<StreamCard
-			stream={stream}
-			id={id as string}
-			onShareScreen={startScreenShare}
-			onShareCamera={startCameraShare}
-		/>
+		<Grid
+			strategy="grid"
+			colCount={{ xs: 1, s: 1, m: 6, l: 6, xl: 6 }}
+			sx={{ minHeight: "100vh" }}
+		>
+			<Column
+				flex
+				colStart={{ m: 2, l: 2, xl: 2 }}
+				colSpan={{ m: 4 }}
+				sx={{ alignItems: "center", justifyContent: "stretch" }}
+			>
+				<StreamCard
+					stream={stream}
+					id={id as string}
+					onShareScreen={startScreenShare}
+					onShareCamera={startCameraShare}
+				/>
+			</Column>
+		</Grid>
 	);
 }
