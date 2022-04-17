@@ -1,37 +1,39 @@
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import IconButton from "@mui/material/IconButton";
-import Toolbar from "@mui/material/Toolbar";
-import AppBar from "@mui/material/AppBar";
+import { Column, Grid } from "@contour/react";
 import Typography from "@mui/material/Typography";
 import { useTranslation } from "next-i18next";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import React from "react";
-import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
+import Button from "@mui/material/Button";
+
+const ObsLottie = dynamic(async () => import("@/atoms/lottie-player"), {
+	ssr: false,
+});
 
 export default function Template() {
 	const { t } = useTranslation(["common"]);
 	return (
-		<>
-			<AppBar position="static">
-				<Toolbar>
-					<MeetingRoomIcon sx={{ mr: 2 }} />
-					<Typography component="h1">OBS Guru</Typography>
-				</Toolbar>
-			</AppBar>
-			<Card sx={{ width: 300, m: 2 }}>
-				<CardContent>
-					<Typography>Create Streams for OBS</Typography>
-				</CardContent>
-				<CardActions>
-					<Link passHref href="/room">
-						<IconButton aria-label={t("common:openRoom")}>
-							<MeetingRoomIcon />
-						</IconButton>
-					</Link>
-				</CardActions>
-			</Card>
-		</>
+		<Grid
+			strategy="grid"
+			colCount={{ xs: 1, s: 1, m: 2, l: 2, xl: 2 }}
+			sx={{ alignItems: "center", minHeight: "100vh" }}
+		>
+			<Column>
+				<Typography variant="h3" component="h1" sx={{ textAlign: "center" }}>
+					<>{t("common:headline")}</>
+				</Typography>
+			</Column>
+			<Column flex colSpan={{ xs: 1 }} sx={{ justifyContent: "center" }}>
+				<Link passHref href="/room">
+					<Button variant="contained" size="large">
+						<>{t("common:openRoom")}</>
+					</Button>
+				</Link>
+			</Column>
+
+			<Column flex colSpan={{ xs: 1 }} sx={{ justifyContent: "center" }}>
+				<ObsLottie />
+			</Column>
+		</Grid>
 	);
 }

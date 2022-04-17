@@ -36,6 +36,9 @@
     "xo:fix": "yarn xo --fix"
   },
   "dependencies": {
+    "@contour/react": "^0.6.3",
+    "@contour/theme": "^0.6.0",
+    "@contour/utils": "^0.6.0",
     "@emotion/cache": "11.7.1",
     "@emotion/react": "11.9.0",
     "@emotion/server": "11.4.0",
@@ -53,6 +56,7 @@
     "pusher-js": "7.0.6",
     "react": "18.0.0",
     "react-dom": "18.0.0",
+    "react-lottie-player": "^1.4.2",
     "wrtc": "0.4.7",
     "zustand": "3.7.2"
   },
