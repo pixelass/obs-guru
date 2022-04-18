@@ -16,5 +16,5 @@ export const StyledVideoWrapper = styled("figure")(({ theme }) => ({
 	width: "100%",
 	margin: 0,
 	paddingBottom: `${(100 / 16) * 9}%`,
-	background: theme.palette.primary.main,
+	background: theme.palette.grey[900],
 }));

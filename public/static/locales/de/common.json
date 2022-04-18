@@ -2,6 +2,7 @@
   "copyLink": "Link kopieren",
   "credits": "Credits",
   "headline": "Erstelle Streams für OBS",
+  "height": "Höhe",
   "introText0": "100% gratis",
   "introText1": "Kein Login, keine Cookies, kein Tracking, kein sammeln von Daten",
   "introText2": "100% open source",
@@ -11,5 +12,6 @@
   "shareScreen": "Bildschirm teilen",
   "start": "Start",
   "streamNow": "Jetzt streamen",
-  "stop": "Stop"
+  "stop": "Stop",
+  "width": "breite"
 }
