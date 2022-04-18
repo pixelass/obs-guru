@@ -52,7 +52,7 @@ export default function Template() {
 				<IconButton
 					href="https://github.com/pixelass/obs-guru"
 					rel="noreferrer"
-					target="blank"
+					target="_blank"
 					aria-label="GitHub"
 					component="a"
 					color="inherit"
