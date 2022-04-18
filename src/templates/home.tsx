@@ -19,7 +19,11 @@ export default function Template() {
 		<Grid
 			strategy="grid"
 			colCount={{ xs: 1, s: 1, m: 2, l: 2, xl: 2 }}
-			sx={{ alignItems: "center", minHeight: "100vh", color: "#000000" }}
+			sx={{
+				alignItems: "center",
+				minHeight: "100vh",
+				color: "#000000",
+			}}
 		>
 			<Column>
 				<Typography variant="h3" component="h1" sx={{ textAlign: "center" }}>
@@ -45,7 +49,17 @@ export default function Template() {
 				</Stack>
 			</Column>
 
-			<Column flex colSpan={{ xs: 1 }} sx={{ justifyContent: "center" }}>
+			<Column
+				flex
+				colSpan={{ xs: 1 }}
+				sx={{
+					justifyContent: "center",
+					backgroundImage: "url(/assets/obs.svg)",
+					backgroundRepeat: "no-repeat",
+					backgroundPosition: "50% 10%",
+					backgroundSize: "70%",
+				}}
+			>
 				<ObsLottie />
 			</Column>
 			<Column>
