@@ -4,6 +4,7 @@ export const StyledVideo = styled("video")({
 	width: "100%",
 	height: "100%",
 	objectFit: "contain",
+	backgroundColor: "black",
 });
 
 export const StyledAbsoluteVideo = styled(StyledVideo)({
