@@ -87,6 +87,9 @@ export default function Template() {
 					id={id as string}
 					onShareScreen={startScreenShare}
 					onShareCamera={startCameraShare}
+					onStop={() => {
+						useStore.getState().setStream(null);
+					}}
 				/>
 			</Column>
 		</Grid>
