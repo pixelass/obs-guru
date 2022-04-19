@@ -88,6 +88,11 @@ export default function Template() {
 					onShareScreen={startScreenShare}
 					onShareCamera={startCameraShare}
 					onStop={() => {
+						const tracks = useStore.getState().stream.getTracks();
+						for (const track of tracks) {
+							track.stop();
+						}
+
 						useStore.getState().setStream(null);
 					}}
 				/>
