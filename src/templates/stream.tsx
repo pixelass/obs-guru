@@ -2,9 +2,11 @@ import { StyledVideo } from "@/atoms/video/styled";
 import { usePeer } from "@/ions/contexts/peer";
 import { FitScreenLoader } from "@/ions/styles";
 import { SocketEvents } from "@/ions/types";
+import Box from "@mui/material/Box";
+import CircularProgress from "@mui/material/CircularProgress";
 import axios from "axios";
 import { useRouter } from "next/router";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export default function Template() {
 	const {
@@ -12,6 +14,7 @@ export default function Template() {
 	} = useRouter();
 	const peer = usePeer();
 	const video = useRef<HTMLVideoElement>(null);
+	const [loading, setLoading] = useState(true);
 	useEffect(() => {
 		if (peer) {
 			peer.on("call", function (call) {
@@ -20,6 +23,7 @@ export default function Template() {
 					video.current.srcObject = remoteStream;
 					video.current.muted = true;
 					video.current.addEventListener("loadedmetadata", () => {
+						setLoading(false);
 						void video.current.play();
 					});
 				});
@@ -67,6 +71,18 @@ export default function Template() {
 		<>
 			<FitScreenLoader />
 			<StyledVideo ref={video} muted />
+			{loading && (
+				<Box
+					sx={{
+						position: "absolute",
+						top: "50%",
+						left: "50%",
+						transform: "translate(-50%, -50%)",
+					}}
+				>
+					<CircularProgress size="20vmin" color="secondary" />
+				</Box>
+			)}
 		</>
 	);
 }
